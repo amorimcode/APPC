@@ -101,17 +101,31 @@ def listeLivros (conexao):
         
     while linha:
         print (linha[0]+" "+linha[1]+" "+str(linha[2]))
-        linha = cursor.fetchone()    
+        linha = cursor.fetchone()
+
+def listeAutores (conexao):
+    cursor=conexao.cursor()
+    cursor.execute("SELECT Autores.nome FROM Autores")
+
+    linha = cursor.fetchone()
+    if not linha:
+        print("Não há autores cadastrados!")
+        return
+
+    while linha:
+        print(linha[0])
+        linha = cursor.fetchone()
+
 
 def main():
     print ("PROGRAMA PARA PARA CADASTRAR LIVROS E SEUS AUTORES")
 	
     servidor = 'localhost/xe'
     usuario  = 'SYSTEM'
-    senha    = 'auladebd'
+    senha    = 'carlos123'
 
     try:
-        conexao = cx_Oracle.connect(dsn=servidor,user=usuario,password=senha)
+        conexao = cx_Oracle.connect(dsn=servidor,user="system",password="carlos123")
         cursor  = conexao.cursor()
     except cx_Oracle.DatabaseError:
         print ("Erro de conexão com o BD\n")
@@ -182,9 +196,10 @@ def main():
         print ("\n1) Cadastrar Autor")
         print ("2) Remover   Autor")
         print ("3) Cadastrar Livro")
-        print ("4) Remover   Livro")
-        print ("5) Listar    Livros")
-        print ("6) Terminar\n")
+        print ("4) Listar Autores ")
+        print ("5) Remover   Livro")
+        print ("6) Listar    Livros")
+        print ("7) Terminar\n")
             
         try:
             opcao = int(input("Digite sua opção: "));
@@ -198,10 +213,12 @@ def main():
             elif opcao==3:
                 cadastreLivro (conexao)
             elif opcao==4:
-                removaLivro (conexao)
+                listeAutores (conexao)
             elif opcao==5:
-                listeLivros (conexao)
+                removaLivro (conexao)
             elif opcao==6:
+                listeLivros (conexao)
+            elif opcao==7:
                 fimDoPrograma=True
             else:
                 print ("Opção inválida\n")

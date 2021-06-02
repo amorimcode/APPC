@@ -125,7 +125,7 @@ def main():
     senha    = 'carlos123'
 
     try:
-        conexao = cx_Oracle.connect(dsn=servidor,user="system",password="carlos123")
+        conexao = cx_Oracle.connect(dsn=servidor,user="SYSTEM",password="211693")
         cursor  = conexao.cursor()
     except cx_Oracle.DatabaseError:
         print ("Erro de conexão com o BD\n")

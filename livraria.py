@@ -2,7 +2,7 @@
 
 import os
 os.chdir("C:")
-os.chdir("C:\\Users\\carlo\\Downloads\\instantclient-basic-windows.x64-19.6.0.0.0dbru\\instantclient_19_6")
+os.chdir("C:\\Users\\bruno\\Downloads\\instantclient_19_6")
 
 import cx_Oracle
 

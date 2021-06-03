@@ -1,5 +1,6 @@
-# Nome: Bruno Amorim da Silva RA: 20630380
-
+# Nome: Bruno Amorim da Silva       RA: 20630380
+# Nome: Cícero Matheus Cabral       RA: 20630406
+# Nome: Carlos Antony Bletcha Pires RA: 20630414
 """ 1. Descrição do problema:
 Fazer um programa que exibe o mapa de lugares de um Teatro, o cliente escolhe o lugar e gera
 o ingresso. O ingresso é individual e para mais ingressos repetir o processo. O processo deve ser

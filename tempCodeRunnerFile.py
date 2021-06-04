@@ -1,0 +1,1 @@
+print(fileira+assento)

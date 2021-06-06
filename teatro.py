@@ -1,5 +1,3 @@
-
-
 # Nome: Bruno Amorim da Silva       RA: 20630380
 # Nome: Cícero Matheus Cabral       RA: 20630406
 # Nome: Carlos Antony Bletcha Pires RA: 20630414
@@ -23,6 +21,7 @@ parte debaixo da matriz """
 # Perguntar se quer reservar mais (s) ou (n) #
 
 import pandas as pd
+from time import sleep
 
 def main():
     Mapa_Lugares = dict()
@@ -50,34 +49,40 @@ def main():
         print("J ","|",Mapa_Lugares.get("J1"),"|","|",Mapa_Lugares.get("J2"),"|","|",Mapa_Lugares.get("J3"),"|","|",Mapa_Lugares.get("J4"),"|","|",Mapa_Lugares.get("J5"),"|","|",Mapa_Lugares.get("J6"),"|","|",Mapa_Lugares.get("J7"),"|","|",Mapa_Lugares.get("J8"),"|","|",Mapa_Lugares.get("J9"),"|","|",Mapa_Lugares.get("J10"),"|","|",Mapa_Lugares.get("J11"),"|","|",Mapa_Lugares.get("J12"),"|","|",Mapa_Lugares.get("J13"),"|","|",Mapa_Lugares.get("J14"),"|","|",Mapa_Lugares.get("J15"),"|","|",Mapa_Lugares.get("J16"),"|","|",Mapa_Lugares.get("J17"),"|","|",Mapa_Lugares.get("J18"),"|","|",Mapa_Lugares.get("J19"),"|","|",Mapa_Lugares.get("J20"),"|" +"\n")
         print("     1","    2","    3","    4","    5","    6","    7","    8","    9","    10","   11","   12","   13","   14","   15","   16","   17","   18","   19","   20")
         print(" ")
-        print("Escolha uma fileira <de A a J>")
-        fileira=str(input("Digite uma Letra: "))
+        
+        try:
+            print("Escolha uma fileira <de A a J>")
+            fileira=str(input("Digite uma Letra: ")).upper()
 
-        print('')
+            print('')
 
-        print("Escolha um assento <de 1 a 20>")
-        assento = input("Digite um número: ")
+            print("Escolha um assento <de 1 a 20>")
+            assento = input("Digite um número: ")
 
-        print('')
+            print('')
 
-        nome = input("Digite seu nome: ")
-        print(f'Nome: {nome}!'+"\n")
-        cadeira = fileira + assento
+            nome = input("Digite seu nome: ")
+            print(f'Nome: {nome}!'+"\n")
+            cadeira = fileira + assento
 
-        #verifica se o assento está ocupado
-        if Mapa_Lugares[cadeira] == 1:
-            print('Assento Ocupado! Escolha outro.')
-        elif Mapa_Lugares[cadeira] == 0:
-            Mapa_Lugares[cadeira] = 1
-            print("Reserva feita com sucesso!")
-            print("--------------------------------")
-            print("Nome do filme: Invocação do Mal 3")
-            print("Horário: 6a - 20hrs")
-            print(f"Lugar: {cadeira}"+"\n")
-            reserva = str(input("Nova reserva? (S/N): ")).upper()
-            print(" ")
-            if reserva != "S":
-                status = True
+            #verifica se o assento está ocupado
+            if Mapa_Lugares[cadeira] == 1:
+                print('Assento Ocupado! Escolha outro.')
+            elif Mapa_Lugares[cadeira] == 0:
+                Mapa_Lugares[cadeira] = 1
+                print("Reserva feita com sucesso!")
+                print("--------------------------------")
+                print("Nome do filme: Invocação do Mal 3")
+                print("Horário: 6a - 20hrs")
+                print(f"Lugar: {cadeira}"+"\n")
+                reserva = str(input("Nova reserva? (S/N): ")).upper()
+                print(" ")
+                if reserva != "S":
+                    status = True
+
+        except KeyError:
+            print("Opa colega, digitou algum valor incorreto, fique atento ao enunciado ;)"+"\n")
+            sleep(5)
            
         
    
